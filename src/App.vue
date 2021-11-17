@@ -7,25 +7,39 @@
     </div>
     <router-view/>
 
+    <Bonjour />
+    <Bonjour />
+    <Bonjour />
+    <Bonjour />
+    <Bonjour />
+
+
     <ul>
       <li v-for="(note, matiere) in notes" :key="matiere">
-        Note sur {{ matiere }} : {{ note }} =>
-        <span v-if="note > 10">{{ matiere }} validé</span>
-        <span v-else><b>{{ matiere }} non validé</b></span>
+        <Note :matiere="matiere" :note="note" />
       </li>
       <li>Moyenne des notes : {{ moyenneCalculee }}</li>
-      <li v-if="moyenneCalculee >10">Vous êtes admis</li>
+      <li>
+        <Note matiere="Moyenne" :note="moyenneCalculee" />
+      </li>
+      <li v-if="moyenneCalculee > 10">Vous êtes admis</li>
       <li v-else>Play again !</li>
     </ul>
-
     <input type="text" v-model.number="notes.Symfony">
 
   </div>
 </template>
 
 <script>
+import Bonjour from './components/Bonjour'
+import Note from './components/Note'
+
 export default {
   name: 'App',
+  components: {
+    Bonjour,
+    Note
+  },
   data: () => {
     return {
       notes: {
