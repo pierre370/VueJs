@@ -25,6 +25,9 @@
       <li v-if="moyenneCalculee > 10">Vous êtes admis</li>
       <li v-else>Play again !</li>
     </ul>
+
+    <input-text name="test" id="test" :required="true" class="form" label="Champ 1" />
+
     <input type="text" v-model.number="notes.Symfony">
 
   </div>
@@ -33,10 +36,12 @@
 <script>
 import Bonjour from './components/Bonjour'
 import Note from './components/Note'
+import InputText from './components/formulaire/InputText'
 
 export default {
   name: 'App',
   components: {
+    InputText,
     Bonjour,
     Note
   },
