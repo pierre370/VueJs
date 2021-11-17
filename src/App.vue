@@ -27,6 +27,15 @@
     </ul>
 
     <input-text name="test" id="test" :required="true" class="form" label="Champ 1" />
+    <input-select
+        name="test"
+        id="test"
+        :required="false"
+        class="form"
+        label="Champ Select"
+        :donnees="donnees"
+
+    />
 
     <input type="text" v-model.number="notes.Symfony">
 
@@ -37,16 +46,25 @@
 import Bonjour from './components/Bonjour'
 import Note from './components/Note'
 import InputText from './components/formulaire/InputText'
+import InputSelect from './components/formulaire/InputSelect'
 
 export default {
   name: 'App',
   components: {
     InputText,
+    InputSelect,
     Bonjour,
     Note
   },
   data: () => {
     return {
+      donnees: [
+        'Symfony',
+        'PHP',
+        'HTML',
+        'CSS',
+        'VueJS'
+      ],
       notes: {
         'Symfony': 12,
         'Réseau': 14,
