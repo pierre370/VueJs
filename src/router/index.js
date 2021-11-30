@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Recherche from '../views/Recherche.vue'
 import Categories from '../views/Categories.vue'
 import Messages from '../views/Messages.vue'
+import CategorieMessages from '../views/CategoriesMessages'
 
 Vue.use(VueRouter)
 
@@ -16,7 +17,14 @@ const routes = [
   {
     path: '/categories',
     name: 'Categories',
-    component: Categories
+    component: Categories,
+    children: [
+      {
+        path: ':id',
+        name: 'categorie_messages',
+        component: CategorieMessages
+      }
+    ]
   },
   {
     path: '/messages',

@@ -2,8 +2,13 @@
   <div class="about">
     <h1>Liste des catégories</h1>
     <ul>
-      <li v-for="categorie in categories" :key="categorie.id">{{categorie.libelle}}</li>
+      <li v-for="categorie in categories" :key="categorie.id">
+        <router-link :to="{name:'categorie_messages', params: {id: categorie.id}}">
+        {{categorie.libelle}}
+        </router-link>
+      </li>
     </ul>
+    <router-view></router-view>
   </div>
 </template>
 
