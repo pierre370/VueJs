@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Recherche from '../views/Recherche.vue'
+import Categories from '../views/Categories.vue'
+import Messages from '../views/Messages.vue'
 
 Vue.use(VueRouter)
 
@@ -11,7 +14,22 @@ const routes = [
     component: Home
   },
   {
-    path: '/about',
+    path: '/categories',
+    name: 'Categories',
+    component: Categories
+  },
+  {
+    path: '/messages',
+    name: 'Messages',
+    component: Messages
+  },
+  {
+    path: '/recherche',
+    name: 'Recherche',
+    component: Recherche
+  },
+  {
+    path: '/a-propos',
     name: 'About',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
