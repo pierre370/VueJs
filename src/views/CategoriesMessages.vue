@@ -1,7 +1,12 @@
 <template>
   <div class="about">
-    <h1>Liste des messages de la catégorie : {{  categorie.libelle }}</h1>
-    <p>{{ categorie }}</p>
+    <h1>Liste des messages de la catégorie : {{ categorie.libelle }}</h1>
+    <h2>Les messages</h2>
+    <article v-for="message in categorie.messages" :key="message.id">
+      <h3>{{ message.titre }}</h3>
+      <p>Publié le {{ message.datePublication }}</p>
+      <p>Voir le message...</p>
+    </article>
   </div>
 </template>
 
@@ -17,15 +22,15 @@ export default {
     }
   },
   watch: {
-    $route() {
+    $route () {
       this.actualiseCategorie()
     }
   },
-  async mounted() {
+  async mounted () {
     this.actualiseCategorie()
   },
   methods: {
-    async actualiseCategorie() {
+    async actualiseCategorie () {
       console.log(this.$route.params.id)
       this.categorie = await getCategorie(this.$route.params.id).then((response) => {
         return response.data
