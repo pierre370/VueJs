@@ -4,7 +4,7 @@
     <h2>Les messages</h2>
     <article v-for="message in categorie.messages" :key="message.id">
       <h3>{{ message.titre }}</h3>
-      <p>Publié le {{ message.datePublication }}</p>
+      <p>Publié le {{ moment(message.datePublication).format('LLLL') }}</p>
       <p>Voir le message...</p>
     </article>
   </div>
@@ -13,6 +13,7 @@
 <script>
 
 import {getCategorie} from '../api/categorie'
+import moment from "moment";
 
 export default {
   name: 'CategoriesMessages',
@@ -30,6 +31,10 @@ export default {
     this.actualiseCategorie()
   },
   methods: {
+    moment(date) {
+      moment.locale();
+      return moment(date);
+    },
     async actualiseCategorie () {
       console.log(this.$route.params.id)
       this.categorie = await getCategorie(this.$route.params.id).then((response) => {
