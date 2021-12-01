@@ -10,5 +10,9 @@ async function getCategorie (id) {
   return await axios.get(BASE_URL+'/'+id)
 }
 
-export {getCategories, getCategorie}
+async function postCategorie (data) {
+  return await axios.post(BASE_URL, data)
+}
+
+export {getCategories, getCategorie, postCategorie}
 

@@ -5,6 +5,7 @@ import Recherche from '../views/Recherche.vue'
 import Categories from '../views/Categories.vue'
 import Messages from '../views/Messages.vue'
 import CategorieMessages from '../views/CategoriesMessages'
+import NouvelleCategorie from '../views/NouvelleCategorie'
 
 Vue.use(VueRouter)
 
@@ -13,6 +14,11 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/nouvelle-categorie',
+    name: 'nouvelle-categorie',
+    component: NouvelleCategorie
   },
   {
     path: '/categories',
