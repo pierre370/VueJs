@@ -6,6 +6,9 @@ import Categories from '../views/Categories.vue'
 import Messages from '../views/Messages.vue'
 import CategorieMessages from '../views/CategoriesMessages'
 import NouvelleCategorie from '../views/NouvelleCategorie'
+import NouveauMessage from "../views/NouveauMessage";
+import  Login from "../views/Login";
+import register from "../views/register";
 
 Vue.use(VueRouter)
 
@@ -19,6 +22,21 @@ const routes = [
     path: '/nouvelle-categorie',
     name: 'nouvelle-categorie',
     component: NouvelleCategorie
+  },
+  {
+    path: '/nouveau-message',
+    name: 'nouveau-message',
+    component: NouveauMessage
+  },
+  {
+    path: '/connexion',
+    name: 'connexion',
+    component: Login
+  },
+  {
+    path: '/users',
+    name: 'users',
+    component: register
   },
   {
     path: '/categories',

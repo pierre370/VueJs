@@ -12,10 +12,12 @@
       <label for="couleur">Couleur</label>
       <input type="text" name="couleur" v-model="couleur"  id="couleur"/>
     </div>
-    <div>
-      <button @click="ajoutCategorie">Ajouter</button>
+    <div><br>
+      <button class="button" @click="ajoutCategorie">Ajouter</button>
     </div>
+
   </div>
+
 </template>
 
 <script>
@@ -38,7 +40,7 @@ export default {
         libelle: this.libelle
       }).then((reponse) => {
         console.log(reponse)
-        //this.confirm = true //activation d'un bandeau de confirmation
+        this.confirm = true //activation d'un bandeau de confirmation
         this.$router.push('/categories') //redirection
       })
     }
@@ -46,3 +48,19 @@ export default {
 }
 
 </script>
+<style>
+.button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 10px;
+  background-color: #c9d2d5;
+  border-radius: 8px;
+}
+.button:hover {
+  background-color: #5f7177;
+}
+
